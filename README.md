@@ -67,3 +67,12 @@ expr ::=
     Attr(expr, token)
     FuncDef(pos: token, is_local: bool, fname: maybe<token>, params: maybe<params>, body: block)
 ```
+
+## Run
+
+```bash
+shell> dotnet run
+
+lua parser> 1 + 1
+block { suite = System.Collections.Generic.List`1[lua_parser.stmt], ret = lua_parser.maybe`1[lua_parser.stmt] }lua parser> 
+```
