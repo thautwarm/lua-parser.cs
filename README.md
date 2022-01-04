@@ -88,6 +88,6 @@ block { suite = System.Collections.Generic.List`1[lua_parser.stmt], ret = lua_pa
 
 | file  | characters | lines | description |
 |----|---|---|---|
-| Lua.g4 | 16158 | 349 | define grammar |
-| LuaAst.cs | 4453 | 84 | define ASTs |
-| LuaParseRequire.cs |  2059 | 60 | define necessary operations <br /> to construct ASTs |
+| Lua.g4 | 12480 | 349 | define grammar |
+| LuaAst.cs | 3533 | 84 | define ASTs |
+| LuaParseRequire.cs |  1428 | 60 | define necessary operations <br /> to construct ASTs |
