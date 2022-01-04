@@ -212,15 +212,15 @@ public interface ILuaListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitElseif([NotNull] LuaParser.ElseifContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="LuaParser.else__x_"/>.
+	/// Enter a parse tree produced by <see cref="LuaParser.else_block"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterElse__x_([NotNull] LuaParser.Else__x_Context context);
+	void EnterElse_block([NotNull] LuaParser.Else_blockContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="LuaParser.else__x_"/>.
+	/// Exit a parse tree produced by <see cref="LuaParser.else_block"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitElse__x_([NotNull] LuaParser.Else__x_Context context);
+	void ExitElse_block([NotNull] LuaParser.Else_blockContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="LuaParser.exp"/>.
 	/// </summary>
@@ -322,15 +322,15 @@ public interface ILuaListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitAllow_empty_o_nonempty_seplist_of_comma_and_exp_p_([NotNull] LuaParser.Allow_empty_o_nonempty_seplist_of_comma_and_exp_p_Context context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="LuaParser.seplist_o__i__s__i__s_exp_p_"/>.
+	/// Enter a parse tree produced by <see cref="LuaParser.seplist_of_comma_and_exp"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSeplist_o__i__s__i__s_exp_p_([NotNull] LuaParser.Seplist_o__i__s__i__s_exp_p_Context context);
+	void EnterSeplist_of_comma_and_exp([NotNull] LuaParser.Seplist_of_comma_and_expContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="LuaParser.seplist_o__i__s__i__s_exp_p_"/>.
+	/// Exit a parse tree produced by <see cref="LuaParser.seplist_of_comma_and_exp"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSeplist_o__i__s__i__s_exp_p_([NotNull] LuaParser.Seplist_o__i__s__i__s_exp_p_Context context);
+	void ExitSeplist_of_comma_and_exp([NotNull] LuaParser.Seplist_of_comma_and_expContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="LuaParser.args"/>.
 	/// </summary>
@@ -342,25 +342,35 @@ public interface ILuaListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitArgs([NotNull] LuaParser.ArgsContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="LuaParser.opt_o__i_name_k__p_"/>.
+	/// Enter a parse tree produced by <see cref="LuaParser.optional_funcname"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOpt_o__i_name_k__p_([NotNull] LuaParser.Opt_o__i_name_k__p_Context context);
+	void EnterOptional_funcname([NotNull] LuaParser.Optional_funcnameContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="LuaParser.opt_o__i_name_k__p_"/>.
+	/// Exit a parse tree produced by <see cref="LuaParser.optional_funcname"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOpt_o__i_name_k__p_([NotNull] LuaParser.Opt_o__i_name_k__p_Context context);
+	void ExitOptional_funcname([NotNull] LuaParser.Optional_funcnameContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="LuaParser.opt_o_parlist_p_"/>.
+	/// Enter a parse tree produced by <see cref="LuaParser.optional_parlist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOpt_o_parlist_p_([NotNull] LuaParser.Opt_o_parlist_p_Context context);
+	void EnterOptional_parlist([NotNull] LuaParser.Optional_parlistContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="LuaParser.opt_o_parlist_p_"/>.
+	/// Exit a parse tree produced by <see cref="LuaParser.optional_parlist"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOpt_o_parlist_p_([NotNull] LuaParser.Opt_o_parlist_p_Context context);
+	void ExitOptional_parlist([NotNull] LuaParser.Optional_parlistContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="LuaParser.funcname"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFuncname([NotNull] LuaParser.FuncnameContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="LuaParser.funcname"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFuncname([NotNull] LuaParser.FuncnameContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="LuaParser.functiondef"/>.
 	/// </summary>

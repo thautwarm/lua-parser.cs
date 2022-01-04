@@ -33,6 +33,11 @@ namespace lua_parser
         }
 
     }
+
+    public partial interface funcname {  }
+    public partial record DotName(funcname value1,IToken value2) : funcname;
+    public partial record MethodName(funcname value1,IToken value2) : funcname;
+    public partial record VarName(IToken value) : funcname;
     public partial interface arguments { }
     public partial record PositionalArgs(IToken value1, List<expr> value2) : arguments;
     public partial record StringArg(IToken value) : arguments;
@@ -55,7 +60,7 @@ namespace lua_parser
     public partial record ForInStmt(IToken value1, List<IToken> value2, List<expr> value3, block value4) : stmt;
     public partial record ForRangeStmt(IToken value1, IToken value2, range value3, block value4) : stmt;
     public partial record GotoStmt(IToken value1, IToken value2) : stmt;
-    public partial record IfStmt(IToken value1, expr value2, List<if_elseif> value3, maybe<if_else> value4) : stmt;
+    public partial record IfStmt(IToken value1, expr value2, block value3, List<if_elseif> value4, maybe<if_else> value5) : stmt;
     public partial record LabelStmt(IToken value) : stmt;
     public partial record RepeatStmt(IToken value1, block value2, expr value3) : stmt;
     public partial record ReturnStmt(IToken value1, List<expr> value2) : stmt;
@@ -69,7 +74,7 @@ namespace lua_parser
     public partial record CallMethod(expr value1, IToken value2, arguments value3) : expr;
     public partial record Ellipse(IToken value1) : expr;
     public partial record Exponent(expr value1, expr value2) : expr;
-    public partial record FuncDef(IToken pos, bool is_local, maybe<IToken> fname, maybe<parameters> parameters, block body) : expr;
+    public partial record FuncDef(IToken pos, bool is_local, maybe<funcname> fname, maybe<parameters> parameters, block body) : expr;
     public partial record Index(expr value1, expr value2) : expr;
     public partial record Inv(IToken value1, expr value2) : expr;
     public partial record Len(IToken value1, expr value2) : expr;

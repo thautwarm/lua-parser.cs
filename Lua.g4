@@ -50,7 +50,7 @@ optional_semicol
 	| { $result = (maybe<IToken>) none<IToken>(); };
 retstat
 	returns[stmt result]:
-	var_0__1 = 'return' var_0__2 = seplist_o__i__s__i__s_exp_p_ optional_semicol { 
+	var_0__1 = 'return' var_0__2 = seplist_of_comma_and_exp optional_semicol { 
                 $result = (stmt) new ReturnStmt(_localctx.var_0__1, _localctx.var_0__2.result);
             }
     ;
@@ -73,7 +73,7 @@ list_of_elseif
 	var_0__1 = allow_empty_list_of_elseif { $result = _localctx.var_0__1.result; };
 optional_else
 	returns[maybe<if_else> result]:
-	var_0__1 = else__x_ { $result = some<if_else>(_localctx.var_0__1.result); }
+	var_0__1 = else_block { $result = some<if_else>(_localctx.var_0__1.result); }
 	| { $result = none<if_else>(); }
     ;
 stat
@@ -106,8 +106,11 @@ stat
 	| var_8__1 = 'repeat' var_8__2 = block 'until' var_8__4 = exp { 
                 $result = new RepeatStmt(_localctx.var_8__1, _localctx.var_8__2.result, _localctx.var_8__4.result);
             }
-	| var_9__1 = 'if' var_9__2 = exp 'then' var_9__4 = list_of_elseif var_9__5 = optional_else 'end' { 
-                $result = new IfStmt( _localctx.var_9__1, _localctx.var_9__2.result, _localctx.var_9__4.result, _localctx.var_9__5.result);
+	| var_9__1 = 'if' var_9__2 = exp 'then' var_9__4 = block var_9__5 = list_of_elseif var_9__6 = optional_else 'end' { 
+                $result = new IfStmt(
+					_localctx.var_9__1, _localctx.var_9__2.result,
+					_localctx.var_9__4.result, _localctx.var_9__5.result,
+					_localctx.var_9__6.result);
             }
 	| var_10__1 = 'for' var_10__2 = NAME '=' var_10__4 = range 'do' var_10__6 = block 'end' { 
                 $result = new ForRangeStmt(_localctx.var_10__1, _localctx.var_10__2, _localctx.var_10__4.result, _localctx.var_10__6.result);
@@ -116,11 +119,11 @@ stat
 		nonempty_seplist_of_comma_and_exp 'do' var_11__6 = block 'end' { 
                 $result = new ForInStmt(_localctx.var_11__1, _localctx.var_11__2.result, _localctx.var_11__4.result, _localctx.var_11__6.result);
             }
-	| var_12__1 = 'local' 'function' var_12__3 = NAME '(' var_12__5 = opt_o_parlist_p_ ')' var_12__7
+	| var_12__1 = 'local' 'function' var_12__3 = funcname '(' var_12__5 = optional_parlist ')' var_12__7
 		= block 'end' { 
                 $result = new ExprStmt(
                     new FuncDef(_localctx.var_12__1, true, 
-                                some<IToken>(_localctx.var_12__3), _localctx.var_12__5.result, _localctx.var_12__7.result));
+                                some<funcname>(_localctx.var_12__3.result), _localctx.var_12__5.result, _localctx.var_12__7.result));
             }
 	| 'local' var_13__2 = nempty_seplist_of_comma_and_name var_13__3 = opt_assign_rhs { 
                 $result = new Assignment(true, listMap<IToken, expr>(_localctx.var_13__2.result, x => new Var(x)), _localctx.var_13__3.result);
@@ -151,7 +154,7 @@ elseif
             }
     ;
 
-else__x_
+else_block
 	returns[if_else result]:
 	var_0__1 = 'else' var_0__2 = block {  $result = new if_else(_localctx.var_0__1, _localctx.var_0__2.result); };
 exp
@@ -222,32 +225,41 @@ allow_empty_o_nonempty_seplist_of_comma_and_exp_p_
 	{ $result = new List<expr> {  }; }
 	| var_1__1 = nonempty_seplist_of_comma_and_exp { $result = _localctx.var_1__1.result; }
     ;
-seplist_o__i__s__i__s_exp_p_
+seplist_of_comma_and_exp
 	returns[List<expr> result]:
 	var_0__1 = allow_empty_o_nonempty_seplist_of_comma_and_exp_p_ { $result = _localctx.var_0__1.result; }
     ;
 args
 	returns[arguments result]:
-	var_0__1 = '(' var_0__2 = seplist_o__i__s__i__s_exp_p_ ')' 
+	var_0__1 = '(' var_0__2 = seplist_of_comma_and_exp ')' 
         { $result = new PositionalArgs(_localctx.var_0__1, _localctx.var_0__2.result); }
 	| var_1__1 = tableconstructor { $result = new TableArgs(_localctx.var_1__1.result); }
 	| var_2__1 = STR_LIT {  $result = new StringArg(_localctx.var_2__1); }
     ;
-opt_o__i_name_k__p_
-	returns[maybe<IToken> result]:
-	var_0__1 = NAME {  $result = some<IToken>((IToken) _localctx.var_0__1); }
-	| { $result = none<IToken>(); }
+optional_funcname
+	returns[maybe<funcname> result]:
+	var_0__1 = funcname {  $result = some<funcname>(_localctx.var_0__1.result); }
+	| { $result = none<funcname>(); }
     ;
-opt_o_parlist_p_
+optional_parlist
 	returns[maybe<parameters> result]:
 	var_0__1 = parlist {  $result = some<parameters>(_localctx.var_0__1.result); }
 	| { $result = none<parameters>(); }
     ;
 
+funcname returns [funcname result]
+: var_0__1=funcname '.' var_0__3=NAME { 
+			$result = new DotName(_localctx.var_0__1.result, _localctx.var_0__3);
+        }
+| var_1__1=funcname ':' var_1__3=NAME { 
+			$result = new MethodName(_localctx.var_1__1.result, _localctx.var_1__3);
+		}
+| var_2__1=NAME {  $result = new VarName(_localctx.var_2__1); }
+;
 
 functiondef
 	returns[expr result]:
-	var_0__1 = 'function' var_0__2 = opt_o__i_name_k__p_ '(' var_0__4 = opt_o_parlist_p_ ')' var_0__6 = block 'end' { 
+	var_0__1 = 'function' var_0__2 = optional_funcname '(' var_0__4 = optional_parlist ')' var_0__6 = block 'end' { 
             $result = new FuncDef(
                 _localctx.var_0__1, false, _localctx.var_0__2.result,
                 _localctx.var_0__4.result,  _localctx.var_0__6.result);
@@ -330,7 +342,7 @@ binop
 	| var_4__1 = '<=' {  $result = mkOperator<expr>((IToken) _localctx.var_4__1); }
 	| var_5__1 = '>=' {  $result = mkOperator<expr>((IToken) _localctx.var_5__1); }
 	| var_6__1 = '~=' {  $result = mkOperator<expr>((IToken) _localctx.var_6__1); }
-	| var_7__1 = '==' {  $result = mkOperator<expr>((IToken) _localctx.var_7__1); }
+	| '=' var_7__2 = '='  {  $result = mkOperator<expr>((IToken) _localctx.var_7__2); }
 	| var_8__1 = '|' {  $result = mkOperator<expr>((IToken) _localctx.var_8__1); }
 	| var_9__1 = '~' {  $result = mkOperator<expr>((IToken) _localctx.var_9__1); }
 	| var_10__1 = '&' {  $result = mkOperator<expr>((IToken) _localctx.var_10__1); }
@@ -344,12 +356,16 @@ binop
 	| var_18__1 = '//' {  $result = mkOperator<expr>((IToken) _localctx.var_18__1); }
 	| var_19__1 = '%' {  $result = mkOperator<expr>((IToken) _localctx.var_19__1); };
 
-SPACE : (' ' | '\t' | '\r' | '\n') -> skip;
+LINE_COMMENT : '-' '-' ~'\n'* '\n' -> channel(HIDDEN);
+SPACE : (' ' | '\t' | '\r' | '\n') -> channel(HIDDEN);
 fragment DIGIT : [\u0030-\u0039] ;
+fragment HEXCHAR : ([\u0030-\u0039] | [\u0061-\u007A] | [\u0041-\u005A]) ;
 fragment UCHAR : ([\u0061-\u007A] | [\u0041-\u005A] | '_') ;
 NAME : UCHAR (UCHAR | DIGIT)* ;
 fragment INT : DIGIT+ ;
-NUMERAL : '-'? INT ('.' INT)? (('E' | 'e') INT)? ;
+fragment INTEGRAL : INT ('.' INT)? (('E' | 'e') INT)? ;
+fragment HEX : '0x' HEXCHAR+ ;
+NUMERAL : HEX | INTEGRAL ;
 STR_LIT : '"' (('\\' .) | ~'"')* '"' ;
 fragment NESTED_STR1 : '[' ((']' ~']') | ~']')* ']' ;
 fragment NESTED_STR2 : '=' (('[' (~']' | (']' (~'=' | ('=' ~']'))))* ']') | (('=' ~']') | ~'=')*) '=' ;
