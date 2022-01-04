@@ -341,9 +341,7 @@ public partial class LuaParser : Parser {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				 
-				                _localctx.result =  new List<stmt> {  };
-				            
+				 _localctx.result =  new List<stmt> {  }; 
 				}
 				break;
 			case 2:
@@ -351,9 +349,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 111;
 				_localctx.var_1__1 = nempty_list_of_stat(0);
-				 
-				                _localctx.result =  _localctx.var_1__1.result;
-				            
+				 _localctx.result =  _localctx.var_1__1.result; 
 				}
 				break;
 			}
@@ -461,9 +457,7 @@ public partial class LuaParser : Parser {
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  (maybe<stmt>) none<stmt>();
-				            
+				 _localctx.result =  (maybe<stmt>) none<stmt>(); 
 				}
 				break;
 			}
@@ -574,9 +568,7 @@ public partial class LuaParser : Parser {
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  (maybe<IToken>) none<IToken>();
-				            
+				 _localctx.result =  (maybe<IToken>) none<IToken>(); 
 				}
 				break;
 			}
@@ -695,9 +687,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 140;
 			_localctx.var_0__1 = elseif();
-			 
-			                _localctx.result =  new List<if_elseif> { _localctx.var_0__1.result };
-			            
+			 _localctx.result =  new List<if_elseif> { _localctx.var_0__1.result }; 
 			}
 			Context.Stop = TokenStream.LT(-1);
 			State = 149;
@@ -775,9 +765,7 @@ public partial class LuaParser : Parser {
 			case T__21:
 				EnterOuterAlt(_localctx, 1);
 				{
-				 
-				                _localctx.result =  new List<if_elseif> {  };
-				            
+				 _localctx.result =  new List<if_elseif> {  }; 
 				}
 				break;
 			case T__20:
@@ -785,9 +773,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 153;
 				_localctx.var_1__1 = nempty_list_of_elseif(0);
-				 
-				                _localctx.result =  _localctx.var_1__1.result;
-				            
+				 _localctx.result =  _localctx.var_1__1.result; 
 				}
 				break;
 			default:
@@ -837,9 +823,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 158;
 			_localctx.var_0__1 = allow_empty_list_of_elseif();
-			 
-			                _localctx.result =  _localctx.var_0__1.result;
-			            
+			 _localctx.result =  _localctx.var_0__1.result; 
 			}
 		}
 		catch (RecognitionException re) {
@@ -889,17 +873,13 @@ public partial class LuaParser : Parser {
 				{
 				State = 161;
 				_localctx.var_0__1 = else__x_();
-				 
-				                _localctx.result =  some<if_else>(_localctx.var_0__1.result);
-				            
+				 _localctx.result =  some<if_else>(_localctx.var_0__1.result); 
 				}
 				break;
 			case T__7:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  none<if_else>();
-				            
+				 _localctx.result =  none<if_else>(); 
 				}
 				break;
 			default:
@@ -1211,7 +1191,9 @@ public partial class LuaParser : Parser {
 				State = 237;
 				Match(T__7);
 				 
-				                _localctx.result =  new ExprStmt(new FuncDef(_localctx.var_12__1, true, some<IToken>(_localctx.var_12__3), _localctx.var_12__5.result, _localctx.var_12__7.result));
+				                _localctx.result =  new ExprStmt(
+				                    new FuncDef(_localctx.var_12__1, true, 
+				                                some<IToken>(_localctx.var_12__3), _localctx.var_12__5.result, _localctx.var_12__7.result));
 				            
 				}
 				break;
@@ -1280,17 +1262,13 @@ public partial class LuaParser : Parser {
 				Match(T__2);
 				State = 248;
 				_localctx.var_0__2 = nonempty_seplist_of_comma_and_exp(0);
-				 
-				                _localctx.result =  some<List<expr>>(_localctx.var_0__2.result);
-				            
+				 _localctx.result =  some<List<expr>>(_localctx.var_0__2.result); 
 				}
 				break;
 			case 2:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  none<List<expr>>();
-				            
+				 _localctx.result =  none<List<expr>>(); 
 				}
 				break;
 			}
@@ -1353,8 +1331,8 @@ public partial class LuaParser : Parser {
 			State = 257;
 			_localctx.var_0__4 = range_tail();
 			 
-			                _localctx.result =  new range(_localctx.var_0__1.result, _localctx.var_0__3.result, _localctx.var_0__4.result);
-			            
+			        _localctx.result =  new range(_localctx.var_0__1.result, _localctx.var_0__3.result, _localctx.var_0__4.result);
+			    
 			}
 		}
 		catch (RecognitionException re) {
@@ -1406,17 +1384,13 @@ public partial class LuaParser : Parser {
 				Match(T__19);
 				State = 261;
 				_localctx.var_0__2 = exp();
-				 
-				                _localctx.result =  some<expr>(_localctx.var_0__2.result);
-				            
+				 _localctx.result =  some<expr>(_localctx.var_0__2.result); 
 				}
 				break;
 			case T__6:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  none<expr>();
-				            
+				 _localctx.result =  none<expr>(); 
 				}
 				break;
 			default:
@@ -1528,9 +1502,7 @@ public partial class LuaParser : Parser {
 			_localctx.var_0__1 = Match(T__21);
 			State = 274;
 			_localctx.var_0__2 = block();
-			 
-			                _localctx.result =  new if_else(_localctx.var_0__1, _localctx.var_0__2.result);
-			            
+			  _localctx.result =  new if_else(_localctx.var_0__1, _localctx.var_0__2.result); 
 			}
 		}
 		catch (RecognitionException re) {
@@ -1576,9 +1548,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 277;
 			_localctx.var_0__1 = binexp();
-			 
-			                _localctx.result =  _localctx.var_0__1.result;
-			            
+			 _localctx.result =  _localctx.var_0__1.result; 
 			}
 		}
 		catch (RecognitionException re) {
@@ -1625,7 +1595,9 @@ public partial class LuaParser : Parser {
 			State = 280;
 			_localctx.var_0__1 = binseq(0);
 			 
-			                _localctx.result =  mkBinOpSeq(_localctx.var_0__1.result, (op, l, r) => new Bin(op, l, r), ops => new UnsolvedBin(ops));
+			                _localctx.result =  mkBinOpSeq(
+			                    _localctx.var_0__1.result, (op, l, r) => new Bin(op, l, r),
+			                    ops => new UnsolvedBin(ops));
 			            
 			}
 		}
@@ -1691,9 +1663,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 284;
 			_localctx.var_1__1 = binoperand();
-			 
-			                _localctx.result =  new List<Op<expr>> { _localctx.var_1__1.result };
-			            
+			 _localctx.result =  new List<Op<expr>> { _localctx.var_1__1.result }; 
 			}
 			Context.Stop = TokenStream.LT(-1);
 			State = 294;
@@ -1772,9 +1742,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 297;
 			_localctx.var_0__1 = unaryexp();
-			 
-			                _localctx.result =  mkOperand(_localctx.var_0__1.result);
-			            
+			 _localctx.result =  mkOperand(_localctx.var_0__1.result); 
 			}
 		}
 		catch (RecognitionException re) {
@@ -1834,9 +1802,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_0__1 = Match(T__22);
 				State = 301;
 				_localctx.var_0__2 = exponent();
-				 
-				                _localctx.result =  new Len(_localctx.var_0__1, _localctx.var_0__2.result);
-				            
+				 _localctx.result =  new Len(_localctx.var_0__1, _localctx.var_0__2.result); 
 				}
 				break;
 			case T__23:
@@ -1846,9 +1812,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_1__1 = Match(T__23);
 				State = 305;
 				_localctx.var_1__2 = exponent();
-				 
-				                _localctx.result =  new Neg(_localctx.var_1__1, _localctx.var_1__2.result);
-				            
+				 _localctx.result =  new Neg(_localctx.var_1__1, _localctx.var_1__2.result); 
 				}
 				break;
 			case T__24:
@@ -1858,9 +1822,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_2__1 = Match(T__24);
 				State = 309;
 				_localctx.var_2__2 = exponent();
-				 
-				                _localctx.result =  new Inv(_localctx.var_2__1, _localctx.var_2__2.result);
-				            
+				 _localctx.result =  new Inv(_localctx.var_2__1, _localctx.var_2__2.result); 
 				}
 				break;
 			case T__25:
@@ -1870,9 +1832,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_3__1 = Match(T__25);
 				State = 313;
 				_localctx.var_3__2 = exponent();
-				 
-				                _localctx.result =  new Not(_localctx.var_3__1, _localctx.var_3__2.result);
-				            
+				 _localctx.result =  new Not(_localctx.var_3__1, _localctx.var_3__2.result); 
 				}
 				break;
 			case T__16:
@@ -1889,9 +1849,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 316;
 				_localctx.var_4__1 = exponent();
-				 
-				                _localctx.result =  _localctx.var_4__1.result;
-				            
+				 _localctx.result =  _localctx.var_4__1.result; 
 				}
 				break;
 			default:
@@ -1954,9 +1912,7 @@ public partial class LuaParser : Parser {
 				Match(T__26);
 				State = 323;
 				_localctx.var_0__3 = exponent();
-				 
-				                _localctx.result =  new Exponent(_localctx.var_0__1.result, _localctx.var_0__3.result);
-				            
+				 _localctx.result =  new Exponent(_localctx.var_0__1.result, _localctx.var_0__3.result); 
 				}
 				break;
 			case 2:
@@ -1964,9 +1920,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 326;
 				_localctx.var_1__1 = prefixexp(0);
-				 
-				                _localctx.result =  _localctx.var_1__1.result;
-				            
+				 _localctx.result =  _localctx.var_1__1.result; 
 				}
 				break;
 			}
@@ -2050,9 +2004,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 332;
 				_localctx.var_0__1 = Match(NAME);
-				 
-				                _localctx.result =  new Var(_localctx.var_0__1);
-				            
+				 _localctx.result =  new Var(_localctx.var_0__1); 
 				}
 				break;
 			case T__17:
@@ -2063,9 +2015,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_1__2 = exp();
 				State = 336;
 				Match(T__18);
-				 
-				                _localctx.result =  new NestedExp(_localctx.var_1__1, _localctx.var_1__2.result);
-				            
+				 _localctx.result =  new NestedExp(_localctx.var_1__1, _localctx.var_1__2.result); 
 				}
 				break;
 			case T__16:
@@ -2079,9 +2029,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 339;
 				_localctx.var_6__1 = atom();
-				 
-				                _localctx.result =  _localctx.var_6__1.result;
-				            
+				 _localctx.result =  _localctx.var_6__1.result; 
 				}
 				break;
 			default:
@@ -2109,9 +2057,7 @@ public partial class LuaParser : Parser {
 						if (!(Precpred(Context, 5))) throw new FailedPredicateException(this, "Precpred(Context, 5)");
 						State = 345;
 						_localctx.var_2__2 = args();
-						 
-						                          _localctx.result =  new CallFunc(_localctx.var_2__1.result, _localctx.var_2__2.result);
-						                      
+						 _localctx.result =  new CallFunc(_localctx.var_2__1.result, _localctx.var_2__2.result); 
 						}
 						break;
 					case 2:
@@ -2128,8 +2074,7 @@ public partial class LuaParser : Parser {
 						State = 351;
 						_localctx.var_3__4 = args();
 						 
-						                          _localctx.result =  new CallMethod(_localctx.var_3__1.result, _localctx.var_3__3, _localctx.var_3__4.result);
-						                      
+						                  _localctx.result =  new CallMethod(_localctx.var_3__1.result, _localctx.var_3__3, _localctx.var_3__4.result); 
 						}
 						break;
 					case 3:
@@ -2145,9 +2090,7 @@ public partial class LuaParser : Parser {
 						_localctx.var_4__3 = exp();
 						State = 357;
 						Match(T__29);
-						 
-						                          _localctx.result =  new Index(_localctx.var_4__1.result, _localctx.var_4__3.result);
-						                      
+						 _localctx.result =  new Index(_localctx.var_4__1.result, _localctx.var_4__3.result); 
 						}
 						break;
 					case 4:
@@ -2161,9 +2104,7 @@ public partial class LuaParser : Parser {
 						Match(T__30);
 						State = 362;
 						_localctx.var_5__3 = Match(NAME);
-						 
-						                          _localctx.result =  new Attr(_localctx.var_5__1.result, _localctx.var_5__3);
-						                      
+						 _localctx.result =  new Attr(_localctx.var_5__1.result, _localctx.var_5__3); 
 						}
 						break;
 					}
@@ -2234,9 +2175,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 369;
 				_localctx.var_0__1 = Match(T__31);
-				 
-				                _localctx.result =  new Nil(_localctx.var_0__1);
-				            
+				 _localctx.result =  new Nil(_localctx.var_0__1); 
 				}
 				break;
 			case T__32:
@@ -2244,9 +2183,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 371;
 				_localctx.var_1__1 = Match(T__32);
-				 
-				                _localctx.result =  new Bool(_localctx.var_1__1, false);
-				            
+				 _localctx.result =  new Bool(_localctx.var_1__1, false); 
 				}
 				break;
 			case T__33:
@@ -2254,9 +2191,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 373;
 				_localctx.var_2__1 = Match(T__33);
-				 
-				                _localctx.result =  new Bool(_localctx.var_2__1, true);
-				            
+				 _localctx.result =  new Bool(_localctx.var_2__1, true); 
 				}
 				break;
 			case NUMERAL:
@@ -2264,9 +2199,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 375;
 				_localctx.var_3__1 = Match(NUMERAL);
-				 
-				                _localctx.result =  new Num(_localctx.var_3__1);
-				            
+				 _localctx.result =  new Num(_localctx.var_3__1); 
 				}
 				break;
 			case STR_LIT:
@@ -2274,9 +2207,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 377;
 				_localctx.var_4__1 = Match(STR_LIT);
-				 
-				                _localctx.result =  new String(_localctx.var_4__1);
-				            
+				 _localctx.result =  new String(_localctx.var_4__1); 
 				}
 				break;
 			case T__34:
@@ -2284,9 +2215,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 379;
 				_localctx.var_5__1 = Match(T__34);
-				 
-				                _localctx.result =  new Ellipse(_localctx.var_5__1);
-				            
+				 _localctx.result =  new Ellipse(_localctx.var_5__1); 
 				}
 				break;
 			case T__16:
@@ -2294,9 +2223,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 381;
 				_localctx.var_6__1 = functiondef();
-				 
-				                _localctx.result =  _localctx.var_6__1.result;
-				            
+				 _localctx.result =  _localctx.var_6__1.result; 
 				}
 				break;
 			case T__35:
@@ -2304,9 +2231,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 384;
 				_localctx.var_7__1 = tableconstructor();
-				 
-				                _localctx.result =  new TableExpr(_localctx.var_7__1.result);
-				            
+				 _localctx.result =  new TableExpr(_localctx.var_7__1.result); 
 				}
 				break;
 			default:
@@ -2371,9 +2296,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 390;
 			_localctx.var_0__1 = exp();
-			 
-			                _localctx.result =  new List<expr> { _localctx.var_0__1.result };
-			            
+			 _localctx.result =  new List<expr> { _localctx.var_0__1.result }; 
 			}
 			Context.Stop = TokenStream.LT(-1);
 			State = 400;
@@ -2453,9 +2376,7 @@ public partial class LuaParser : Parser {
 			case 1:
 				EnterOuterAlt(_localctx, 1);
 				{
-				 
-				                _localctx.result =  new List<expr> {  };
-				            
+				 _localctx.result =  new List<expr> {  }; 
 				}
 				break;
 			case 2:
@@ -2463,9 +2384,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 404;
 				_localctx.var_1__1 = nonempty_seplist_of_comma_and_exp(0);
-				 
-				                _localctx.result =  _localctx.var_1__1.result;
-				            
+				 _localctx.result =  _localctx.var_1__1.result; 
 				}
 				break;
 			}
@@ -2513,9 +2432,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 409;
 			_localctx.var_0__1 = allow_empty_o_nonempty_seplist_of_comma_and_exp_p_();
-			 
-			                _localctx.result =  _localctx.var_0__1.result;
-			            
+			 _localctx.result =  _localctx.var_0__1.result; 
 			}
 		}
 		catch (RecognitionException re) {
@@ -2576,9 +2493,7 @@ public partial class LuaParser : Parser {
 				_localctx.var_0__2 = seplist_o__i__s__i__s_exp_p_();
 				State = 414;
 				Match(T__18);
-				 
-				                _localctx.result =  new PositionalArgs(_localctx.var_0__1, _localctx.var_0__2.result);
-				            
+				 _localctx.result =  new PositionalArgs(_localctx.var_0__1, _localctx.var_0__2.result); 
 				}
 				break;
 			case T__35:
@@ -2586,9 +2501,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 417;
 				_localctx.var_1__1 = tableconstructor();
-				 
-				                _localctx.result =  new TableArgs(_localctx.var_1__1.result);
-				            
+				 _localctx.result =  new TableArgs(_localctx.var_1__1.result); 
 				}
 				break;
 			case STR_LIT:
@@ -2596,9 +2509,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 420;
 				_localctx.var_2__1 = Match(STR_LIT);
-				 
-				                _localctx.result =  new StringArg(_localctx.var_2__1);
-				            
+				  _localctx.result =  new StringArg(_localctx.var_2__1); 
 				}
 				break;
 			default:
@@ -2650,17 +2561,13 @@ public partial class LuaParser : Parser {
 				{
 				State = 424;
 				_localctx.var_0__1 = Match(NAME);
-				 
-				                _localctx.result =  some<IToken>((IToken) _localctx.var_0__1);
-				            
+				  _localctx.result =  some<IToken>((IToken) _localctx.var_0__1); 
 				}
 				break;
 			case T__17:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  none<IToken>();
-				            
+				 _localctx.result =  none<IToken>(); 
 				}
 				break;
 			default:
@@ -2715,17 +2622,13 @@ public partial class LuaParser : Parser {
 				{
 				State = 429;
 				_localctx.var_0__1 = parlist();
-				 
-				                _localctx.result =  some<parameters>(_localctx.var_0__1.result);
-				            
+				  _localctx.result =  some<parameters>(_localctx.var_0__1.result); 
 				}
 				break;
 			case T__18:
 				EnterOuterAlt(_localctx, 2);
 				{
-				 
-				                _localctx.result =  none<parameters>();
-				            
+				 _localctx.result =  none<parameters>(); 
 				}
 				break;
 			default:
@@ -2797,8 +2700,10 @@ public partial class LuaParser : Parser {
 			State = 441;
 			Match(T__7);
 			 
-			                _localctx.result =  new FuncDef(_localctx.var_0__1, false, _localctx.var_0__2.result, _localctx.var_0__4.result,  _localctx.var_0__6.result);
-			            
+			            _localctx.result =  new FuncDef(
+			                _localctx.var_0__1, false, _localctx.var_0__2.result,
+			                _localctx.var_0__4.result,  _localctx.var_0__6.result);
+			        
 			}
 		}
 		catch (RecognitionException re) {
@@ -3175,9 +3080,7 @@ public partial class LuaParser : Parser {
 			case T__36:
 				EnterOuterAlt(_localctx, 1);
 				{
-				 
-				                _localctx.result =  new List<table_field> {  };
-				            
+				 _localctx.result =  new List<table_field> {  }; 
 				}
 				break;
 			case T__16:
@@ -3199,9 +3102,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 486;
 				_localctx.var_1__1 = nempty_fields(0);
-				 
-				                _localctx.result =  _localctx.var_1__1.result;
-				            
+				 _localctx.result =  _localctx.var_1__1.result; 
 				}
 				break;
 			default:
@@ -3251,9 +3152,7 @@ public partial class LuaParser : Parser {
 			{
 			State = 491;
 			_localctx.var_0__1 = allow_empty_fields();
-			 
-			                _localctx.result =  _localctx.var_0__1.result;
-			            
+			 _localctx.result =  _localctx.var_0__1.result; 
 			}
 		}
 		catch (RecognitionException re) {
@@ -3578,9 +3477,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 523;
 				_localctx.var_0__1 = Match(T__37);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_0__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_0__1); 
 				}
 				break;
 			case T__38:
@@ -3588,9 +3485,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 525;
 				_localctx.var_1__1 = Match(T__38);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_1__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_1__1); 
 				}
 				break;
 			case T__39:
@@ -3598,9 +3493,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 527;
 				_localctx.var_2__1 = Match(T__39);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_2__1);
-				            
+				 _localctx.result =  mkOperator<expr>((IToken) _localctx.var_2__1); 
 				}
 				break;
 			case T__40:
@@ -3608,9 +3501,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 529;
 				_localctx.var_3__1 = Match(T__40);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_3__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_3__1); 
 				}
 				break;
 			case T__41:
@@ -3618,9 +3509,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 531;
 				_localctx.var_4__1 = Match(T__41);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_4__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_4__1); 
 				}
 				break;
 			case T__42:
@@ -3628,9 +3517,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 533;
 				_localctx.var_5__1 = Match(T__42);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_5__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_5__1); 
 				}
 				break;
 			case T__43:
@@ -3638,9 +3525,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 535;
 				_localctx.var_6__1 = Match(T__43);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_6__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_6__1); 
 				}
 				break;
 			case T__44:
@@ -3648,9 +3533,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 537;
 				_localctx.var_7__1 = Match(T__44);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_7__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_7__1); 
 				}
 				break;
 			case T__45:
@@ -3658,9 +3541,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 539;
 				_localctx.var_8__1 = Match(T__45);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_8__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_8__1); 
 				}
 				break;
 			case T__24:
@@ -3668,9 +3549,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 541;
 				_localctx.var_9__1 = Match(T__24);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_9__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_9__1); 
 				}
 				break;
 			case T__46:
@@ -3678,9 +3557,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 543;
 				_localctx.var_10__1 = Match(T__46);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_10__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_10__1); 
 				}
 				break;
 			case T__47:
@@ -3688,9 +3565,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 545;
 				_localctx.var_11__1 = Match(T__47);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_11__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_11__1); 
 				}
 				break;
 			case T__48:
@@ -3698,9 +3573,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 547;
 				_localctx.var_12__1 = Match(T__48);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_12__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_12__1); 
 				}
 				break;
 			case T__49:
@@ -3708,9 +3581,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 549;
 				_localctx.var_13__1 = Match(T__49);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_13__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_13__1); 
 				}
 				break;
 			case T__50:
@@ -3718,9 +3589,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 551;
 				_localctx.var_14__1 = Match(T__50);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_14__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_14__1); 
 				}
 				break;
 			case T__23:
@@ -3728,9 +3597,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 553;
 				_localctx.var_15__1 = Match(T__23);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_15__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_15__1); 
 				}
 				break;
 			case T__51:
@@ -3738,9 +3605,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 555;
 				_localctx.var_16__1 = Match(T__51);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_16__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_16__1); 
 				}
 				break;
 			case T__52:
@@ -3748,9 +3613,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 557;
 				_localctx.var_17__1 = Match(T__52);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_17__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_17__1); 
 				}
 				break;
 			case T__53:
@@ -3758,9 +3621,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 559;
 				_localctx.var_18__1 = Match(T__53);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_18__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_18__1); 
 				}
 				break;
 			case T__54:
@@ -3768,9 +3629,7 @@ public partial class LuaParser : Parser {
 				{
 				State = 561;
 				_localctx.var_19__1 = Match(T__54);
-				 
-				                _localctx.result =  mkOperator<expr>((IToken) _localctx.var_19__1);
-				            
+				  _localctx.result =  mkOperator<expr>((IToken) _localctx.var_19__1); 
 				}
 				break;
 			default:
