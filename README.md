@@ -9,7 +9,7 @@ This is an antlr4 implementation of Lua parser. It has the following features:
 
 This project serves as a control group of comparisons against [Typed BNF](https://github.com/thautwarm/Typed-BNF/blob/main/runtests/lua.tbnf). We tend to show the conciseness, declarativity, simplicity, and other advantages of TypedBNF.
 
-The grammar uses semantic actions to construct ASTs, and the inner design pattern follows the philosophy described in *"Abstract syntax from concrete syntax."(Wile, David S.)*.
+The grammar uses semantic actions to construct ASTs. The inner design pattern generally follows the philosophy described in *"Abstract syntax from concrete syntax."(Wile, David S.)*, and the only exception is that we store leading tokens of concrete syntax it they are necessary to AST positioning.
 
 ## AST Categories
 
