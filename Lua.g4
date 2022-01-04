@@ -11,23 +11,25 @@ start
 nonaugmented_start
 	returns[block result]:
 	var_0__1 = block {  $result = _localctx.var_0__1.result; };
+    
+
 nempty_list_of_stat
 	returns[List<stmt> result]:
 	var_0__1 = stat {  $result = new List<stmt> { _localctx.var_0__1.result }; }
-	| var_1__1 = nempty_list_of_stat var_1__2 = stat { 
-                $result = appendList<stmt>(_localctx.var_1__1.result, _localctx.var_1__2.result);
-            };
+	| var_1__1 = nempty_list_of_stat var_1__2 = stat { $result = appendList<stmt>(_localctx.var_1__1.result, _localctx.var_1__2.result); }
+    ;
+
 allow_empty_list_of_stat
 	returns[List<stmt> result]:
 	{ $result = new List<stmt> {  }; }
 	| var_1__1 = nempty_list_of_stat { $result = _localctx.var_1__1.result; }
     ;
+
 list_of_stat
 	returns[List<stmt> result]:
-	var_0__1 = allow_empty_list_of_stat { 
-                $result = _localctx.var_0__1.result;
-            }
+	var_0__1 = allow_empty_list_of_stat { $result = _localctx.var_0__1.result; }
     ;
+
 optional_retstat
 	returns[maybe<stmt> result]:
 	var_0__1 = retstat { 
@@ -201,6 +203,7 @@ atom
 	| var_2__1 = 'true' { $result = new Bool(_localctx.var_2__1, true); }
 	| var_3__1 = NUMERAL { $result = new Num(_localctx.var_3__1); }
 	| var_4__1 = STR_LIT { $result = new String(_localctx.var_4__1); }
+	| var_4__1 = NESTED_STR { $result = new String(_localctx.var_4__1); }
 	| var_5__1 = '...' { $result = new Ellipse(_localctx.var_5__1); }
 	| var_6__1 = functiondef { $result = _localctx.var_6__1.result; }
 	| var_7__1 = tableconstructor { $result = new TableExpr(_localctx.var_7__1.result); }
@@ -294,7 +297,7 @@ field_list
 	returns[List<table_field> result]:
 	var_0__1 = allow_empty_fields { $result = _localctx.var_0__1.result; }
     ;
-    
+
 optional_fieldsep:
 	| var_0__1 = fieldsep
     ;
@@ -341,10 +344,13 @@ binop
 	| var_18__1 = '//' {  $result = mkOperator<expr>((IToken) _localctx.var_18__1); }
 	| var_19__1 = '%' {  $result = mkOperator<expr>((IToken) _localctx.var_19__1); };
 
-SPACE: (' ' | '\t' | '\r' | '\n') -> skip;
-fragment DIGIT: [\u0030-\u0039];
-fragment UCHAR: ([\u0061-\u007A] | [\u0041-\u005A] | '_');
-NAME: UCHAR (UCHAR | DIGIT)*;
-fragment INT: DIGIT+;
-NUMERAL: '-'? INT ('.' INT)? (('E' | 'e') INT)?;
-STR_LIT: '"' (('\\' .) | ~'"')* '"';
+SPACE : (' ' | '\t' | '\r' | '\n') -> skip;
+fragment DIGIT : [\u0030-\u0039] ;
+fragment UCHAR : ([\u0061-\u007A] | [\u0041-\u005A] | '_') ;
+NAME : UCHAR (UCHAR | DIGIT)* ;
+fragment INT : DIGIT+ ;
+NUMERAL : '-'? INT ('.' INT)? (('E' | 'e') INT)? ;
+STR_LIT : '"' (('\\' .) | ~'"')* '"' ;
+fragment NESTED_STR1 : '[' ((']' ~']') | ~']')* ']' ;
+fragment NESTED_STR2 : '=' (('[' (~']' | (']' (~'=' | ('=' ~']'))))* ']') | (('=' ~']') | ~'=')*) '=' ;
+NESTED_STR : '[' (NESTED_STR1 | NESTED_STR2) ']' ;

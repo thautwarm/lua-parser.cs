@@ -25,6 +25,8 @@ namespace lua_parser
 
         public static A mkBinOpSeq<A>(List<Op<A>> ops, Func<IToken, A, A, A> mkbin, Func<List<Op<A>>, A> mkunsolved)
         {
+            if(ops.Count == 1)
+                return ops[0].Value;
             return mkunsolved(ops);
         }
 
