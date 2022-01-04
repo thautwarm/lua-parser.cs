@@ -41,31 +41,37 @@ stmt ::=
     | DoStmt(token, block)
     | WhileStmt(token, expr, block)
     | RepeatStmt(token, block, expr)
-    | IfStmt(token, expr, list<if_elseif>, maybe<if_else>)
+    | IfStmt(token, expr, block, list<if_elseif>, maybe<if_else>)
     | ForRangeStmt(token, token, range, block)
     | ForInStmt: (token, list<token>, list<expr>, block)
 
 expr ::=
-    Bin(op: token, l: expr, r: expr)
-    UnsolvedBin(list<op<expr>>)
-    Var(token)
-    Nil(token)
-    Bool(token, bool)
-    Num(token)
-    String(token)
-    Ellipse(token)
-    Exponent(expr, expr)
-    Len(token, expr)
-    Neg(token, expr)
-    Inv(token, expr)
-    Not(token, expr)
-    NestedExp(token, expr)
-    TableExpr(table)
-    CallFunc(expr, arguments)
-    CallMethod(expr, token, arguments)
-    Index(expr, expr)
-    Attr(expr, token)
-    FuncDef(pos: token, is_local: bool, fname: maybe<token>, params: maybe<params>, body: block)
+    | Bin(op: token, l: expr, r: expr)
+    | UnsolvedBin(list<op<expr>>)
+    | Var(token)
+    | Nil(token)
+    | Bool(token, bool)
+    | Num(token)
+    | String(token)
+    | Ellipse(token)
+    | Exponent(expr, expr)
+    | Len(token, expr)
+    | Neg(token, expr)
+    | Inv(token, expr)
+    | Not(token, expr)
+    | NestedExp(token, expr)
+    | TableExpr(table)
+    | CallFunc(expr, arguments)
+    | CallMethod(expr, token, arguments)
+    | Index(expr, expr)
+    | Attr(expr, token)
+    | FuncDef(pos: token, is_local: bool, fname: maybe<funcname>, params: maybe<params>, body: block)
+
+funcname ::=
+    | MethodName(funcname, token)
+    | DotName(funcname, token)
+    | VarName(token)
+
 ```
 
 ## Run
@@ -76,3 +82,12 @@ shell> dotnet run
 lua parser> 1 + 1
 block { suite = System.Collections.Generic.List`1[lua_parser.stmt], ret = lua_parser.maybe`1[lua_parser.stmt] }lua parser> 
 ```
+
+
+## Stats of non-generated part
+
+| file  | characters | lines | description |
+|----|---|---|---|
+| Lua.g4 | 16158 | 349 | define grammar |
+| LuaAst.cs | 4453 | 84 | define ASTs |
+| LuaParseRequire.py |  2059 | 60 | define necessary operations < br /> to construct ASTs |
